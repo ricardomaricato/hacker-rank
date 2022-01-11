@@ -14,14 +14,14 @@ public class JavaStringReverse {
 			return;
 		}
 
-		palindrono(A);
+		isPalindrome(A);
 	}
 
-	private static void palindrono(String input) {
-		String B = input.toLowerCase();
-		String bReversed = new StringBuilder(B).reverse().toString();
+	private static void isPalindrome(String input) {
+		String lowerCaseInput = input.toLowerCase();
+		String reversedLowerCaseinput = new StringBuilder(lowerCaseInput).reverse().toString();
 
-		if (B.equals(bReversed)) {
+		if (lowerCaseInput.equals(reversedLowerCaseinput)) {
 			System.out.println("Yes");
 			return;
 		}
