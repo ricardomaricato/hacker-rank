@@ -18,9 +18,7 @@ public class OccurenceOfCharInString {
 			}
 		}
 
-		for (Map.Entry entry : charCountMap.entrySet()) {
-			System.out.println(entry.getKey() + " " + entry.getValue());
-		}
+		charCountMap.forEach((key, value) -> System.out.println(key + " " + value));
 		System.out.println("=====");
 
 		HashMap<Character, Integer> charCountMap2 = new HashMap<>();
@@ -35,6 +33,7 @@ public class OccurenceOfCharInString {
 			}
 		}
 
+//		charCountMap2.forEach((key, value) -> System.out.println(key + " " + value));
 		for (Map.Entry entry : charCountMap2.entrySet()) {
 			System.out.println(entry.getKey() + " " + entry.getValue());
 		}
@@ -48,7 +47,7 @@ public class OccurenceOfCharInString {
 
 	public static void main(String[] args)
 	{
-		String str = "helLo";
+		String str = "hello";
 		String str2 = "hello";
 		characterCount(str, str2);
 	}
