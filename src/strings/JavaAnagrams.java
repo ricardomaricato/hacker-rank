@@ -4,6 +4,21 @@ import java.util.Scanner;
 
 public class JavaAnagrams {
 
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String a = scan.next();
+		String b = scan.next();
+		scan.close();
+
+		if (a.length() < 1 || a.length() > 50 || b.length() < 1 || b.length() > 50) {
+			System.out.println("Input not allowed");
+			return;
+		}
+
+		boolean ret = isAnagram(a, b);
+		System.out.println((ret) ? "Anagrams" : "Not Anagrams");
+	}
+
 	static boolean isAnagram(String a, String b) {
 		if (a.length() != b.length())
 			return false;
@@ -34,21 +49,5 @@ public class JavaAnagrams {
 		}
 
 		return aCharCountMap.equals(bCharCountMap);
-	}
-
-	public static void main(String[] args) {
-
-		Scanner scan = new Scanner(System.in);
-		String a = scan.next();
-		String b = scan.next();
-		scan.close();
-
-		if (a.length() < 1 || a.length() > 50 || b.length() < 1 || b.length() > 50) {
-			System.out.println("Input not allowed");
-			return;
-		}
-
-		boolean ret = isAnagram(a, b);
-		System.out.println((ret) ? "Anagrams" : "Not Anagrams");
 	}
 }
