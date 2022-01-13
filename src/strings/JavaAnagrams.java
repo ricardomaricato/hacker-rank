@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class JavaAnagrams {
 
 	static boolean isAnagram(String a, String b) {
+		if (a.length() != b.length())
+			return false;
+
 		String aLowerCase = a.toLowerCase();
 		String bLowerCase = b.toLowerCase();
 
