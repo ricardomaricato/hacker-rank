@@ -1,6 +1,5 @@
 package introduction;
 
-import java.io.BufferedReader;
 import java.util.Scanner;
 
 public class JavaStdinAndStdoutI {
