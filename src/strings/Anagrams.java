@@ -2,7 +2,7 @@ package strings;
 
 import java.util.Scanner;
 
-public class JavaAnagrams {
+public class Anagrams {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
