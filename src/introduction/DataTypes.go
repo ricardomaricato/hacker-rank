@@ -34,8 +34,10 @@ func main() {
 func checkDataType(x float64) ([]string, error) {
 	var dataTypeSucess []string
 	var dataTypeError []string
+
 	xToString := fmt.Sprintf("%G", x)
 	stringFormat := fmt.Sprint(xToString, " can be fitted in:")
+
 	dataTypeSucess = append(dataTypeSucess, stringFormat)
 
 	if x >= -128 && x <= 127 {
