@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -16,22 +17,45 @@ func main() {
 	for i := 0; i < a; i++ {
 
 		x, _ := strconv.ParseFloat(readLine(reader), 64)
-		fmt.Println(x, " can be fitted in:")
-		if x >= -128 && x <= 127 {
-			fmt.Println("* byte")
+		result, err := checkDataType(x)
+		if err != nil {
+			for _, v := range result {
+				format := fmt.Sprint(x, v)
+				fmt.Println(format)
+				return
+			}
 		}
-		if x >= -32768 && x <= 32767 {
-			fmt.Println("* short")
-		}
-		if x >= -2147483648 && x <= 2147483647 {
-			fmt.Println("* int")
-		}
-		if x >= -9223372036854775808 && x <= 9223372036854775807 {
-			fmt.Println("* long")
-		} else {
-			fmt.Println("Can't be fitted anywhere.")
+
+		for _, v := range result {
+			fmt.Println(v)
 		}
 	}
+}
+
+func checkDataType(x float64) ([]string, error) {
+	var dataTypeSucess []string
+	var dataTypeError []string
+	xToString := fmt.Sprint(x)
+	stringFormat := fmt.Sprint(xToString, " can be fitted in:")
+	dataTypeSucess = append(dataTypeSucess, stringFormat)
+
+	if x >= -128 && x <= 127 {
+		dataTypeSucess = append(dataTypeSucess, "* byte")
+	}
+	if x >= -32768 && x <= 32767 {
+		dataTypeSucess = append(dataTypeSucess, "* short")
+	}
+	if x >= -2147483648 && x <= 2147483647 {
+		dataTypeSucess = append(dataTypeSucess, "* int")
+	}
+	if x >= -9223372036854775808 && x <= 9223372036854775807 {
+		dataTypeSucess = append(dataTypeSucess, "* long")
+	} else {
+		stringFormatError := fmt.Sprint(" can't be fitted anywhere.")
+		dataTypeError = append(dataTypeError, stringFormatError)
+		return dataTypeError, errors.New("Error")
+	}
+	return dataTypeSucess, nil
 }
 
 func readLine(reader *bufio.Reader) string {
