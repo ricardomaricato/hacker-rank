@@ -20,14 +20,13 @@ func main() {
 		result, err := checkDataType(x)
 		if err != nil {
 			for _, v := range result {
-				format := fmt.Sprint(x, v)
+				format := fmt.Sprintf("%G %s", x, v)
 				fmt.Println(format)
-				return
 			}
-		}
-
-		for _, v := range result {
-			fmt.Println(v)
+		} else {
+			for _, v := range result {
+				fmt.Println(v)
+			}
 		}
 	}
 }
@@ -35,7 +34,7 @@ func main() {
 func checkDataType(x float64) ([]string, error) {
 	var dataTypeSucess []string
 	var dataTypeError []string
-	xToString := fmt.Sprint(x)
+	xToString := fmt.Sprintf("%G", x)
 	stringFormat := fmt.Sprint(xToString, " can be fitted in:")
 	dataTypeSucess = append(dataTypeSucess, stringFormat)
 
