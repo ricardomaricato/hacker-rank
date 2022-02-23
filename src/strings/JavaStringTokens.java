@@ -11,7 +11,7 @@ public class JavaStringTokens {
 			return;
 		}
 
-		String[] strings = s.split("\\W+|_");
+		String[] strings = s.split("[!,?._'@\\s]+");
 		System.out.println(strings.length);
 		for (String string : strings) {
 			System.out.println(string);
